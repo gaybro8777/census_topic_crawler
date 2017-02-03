@@ -1,1 +1,3 @@
 extracted_items.json
+census_topic_crawler/__pycache__/*
+census_topic_crawler/spiders/__pycache__/*

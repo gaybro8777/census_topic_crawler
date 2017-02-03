@@ -9,16 +9,23 @@ import scrapy
 
 
 class Topic(scrapy.Item):
-    #parent_topic_ID = scrapy.Field()
-    #parent_topic_name = scrapy.Field()
-    #topic_name = scrapy.Field()
+    parent_topic_ID = scrapy.Field()
+    parent_topic_name = scrapy.Field()
+    topic_type = scrapy.Field()
+    topic_name = scrapy.Field()
     topic_link = scrapy.Field()
-    topic_main_title = scrapy.Field()
-    topic_main_content = scrapy.Field()
-    topic_related_sites = scrapy.Field()
-    topic_about_title = scrapy.Field()
-    topic_about_content = scrapy.Field()
+    main_title = scrapy.Field()
+    main_content = scrapy.Field()
+    related_sites = scrapy.Field()
+    about_title = scrapy.Field()
+    about_content = scrapy.Field()
     topic_faq_content = scrapy.Field()
+
+#class AboutsubTopic(scrapy.Item):
+
+#parent_topic_about_title
+#parent_topic_about_content
+#parent_topic_about_subtopic (need a new item per with title and description)
 
 # class AboutPage(scrapy.Item):
 #     # define the fields for your item here like:
