@@ -27,9 +27,10 @@ class ParentTopic(scrapy.Item):
 
 class ChildTopic(scrapy.Item):
     topic_type = scrapy.Field()
+    parent = scrapy.Field()
     link = scrapy.Field()
     name = scrapy.Field()
     main_content = scrapy.Field()
-    related_sites = scrapy.Field()
+    #related_sites = scrapy.Field()
     about_content = scrapy.Field()
     faq_content = scrapy.Field()
