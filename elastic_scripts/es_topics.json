@@ -1,0 +1,1003 @@
+{
+   "took": 29,
+   "timed_out": false,
+   "_shards": {
+      "total": 5,
+      "successful": 5,
+      "failed": 0
+   },
+   "hits": {
+      "total": 103,
+      "max_score": 1,
+      "hits": [
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf23",
+            "_score": 1,
+            "_source": {
+               "topic": "Acreage"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf28",
+            "_score": 1,
+            "_source": {
+               "topic": "Group Quarters"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf2t",
+            "_score": 1,
+            "_source": {
+               "topic": "School Enrollment And Type Of School",
+               "parent": "Education"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf16",
+            "_score": 1,
+            "_source": {
+               "topic": "Usual Hours Worked",
+               "parent": "Work Experience"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf2y",
+            "_score": 1,
+            "_source": {
+               "topic": "Journey To Work"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf2e",
+            "_score": 1,
+            "_source": {
+               "topic": "Computer And Internet Use"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf2o",
+            "_score": 1,
+            "_source": {
+               "topic": "Marital Status and Marital History",
+               "parent": "Household Type And Relationship"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf2j",
+            "_score": 1,
+            "_source": {
+               "topic": "Fertility",
+               "parent": "Families"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf2V",
+            "_score": 1,
+            "_source": {
+               "topic": "Ability To Speak English",
+               "parent": "Language Spoken At Home"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf2Q",
+            "_score": 1,
+            "_source": {
+               "topic": "Age"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf2G",
+            "_score": 1,
+            "_source": {
+               "topic": "Meals Included In Rent",
+               "parent": "Housing Costs"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf2B",
+            "_score": 1,
+            "_source": {
+               "topic": "Veteran Status",
+               "parent": "Health Insurance Coverage"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf2L",
+            "_score": 1,
+            "_source": {
+               "topic": "Rent ",
+               "parent": "Housing Costs"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbqAu1wSi1tdf1y",
+            "_score": 1,
+            "_source": {
+               "topic": "Travel Time To Work",
+               "parent": "Journey To Work"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbqAu1wSi1tdf1t",
+            "_score": 1,
+            "_source": {
+               "topic": "Residence 1 Year Ago",
+               "parent": "Migration"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf3D",
+            "_score": 1,
+            "_source": {
+               "topic": "Bedrooms",
+               "parent": "Rooms"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf3N",
+            "_score": 1,
+            "_source": {
+               "topic": "Business Establishments"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf3I",
+            "_score": 1,
+            "_source": {
+               "topic": "Units In Structure"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf24",
+            "_score": 1,
+            "_source": {
+               "topic": "Value of Property"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf29",
+            "_score": 1,
+            "_source": {
+               "topic": "Living Quarters"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf1_",
+            "_score": 1,
+            "_source": {
+               "topic": "Income and Earnings",
+               "parent": "Health Insurance Coverage"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf2u",
+            "_score": 1,
+            "_source": {
+               "topic": "Type Of School",
+               "parent": "School Enrollment And Type Of School"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf17",
+            "_score": 1,
+            "_source": {
+               "topic": "Weeks Worked",
+               "parent": "Work Experience"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf2z",
+            "_score": 1,
+            "_source": {
+               "topic": "Time Leaving Home To Go To Work",
+               "parent": "Journey To Work"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf2f",
+            "_score": 1,
+            "_source": {
+               "topic": "Household Type And Relationship"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf2a",
+            "_score": 1,
+            "_source": {
+               "topic": "Year Of Entry",
+               "parent": "Nativity And Foreign Born Population"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf2k",
+            "_score": 1,
+            "_source": {
+               "topic": "Children Ever Born",
+               "parent": "Fertility"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf1-",
+            "_score": 1,
+            "_source": {
+               "topic": "Class Of Worker",
+               "parent": "Industry"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf2W",
+            "_score": 1,
+            "_source": {
+               "topic": "Household Language",
+               "parent": "Language Spoken At Home"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf2R",
+            "_score": 1,
+            "_source": {
+               "topic": "Sex"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf2C",
+            "_score": 1,
+            "_source": {
+               "topic": "Period Of Miliatry Service",
+               "parent": "Veteran Status"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf2M",
+            "_score": 1,
+            "_source": {
+               "topic": "Mortgage Status",
+               "parent": "Housing Costs"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf2H",
+            "_score": 1,
+            "_source": {
+               "topic": "Mobile Home Costs",
+               "parent": "Housing Costs"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbqAu1wSi1tdf1z",
+            "_score": 1,
+            "_source": {
+               "topic": "Health Insurance Coverage"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbqAu1wSi1tdf1u",
+            "_score": 1,
+            "_source": {
+               "topic": "Place Of Work",
+               "parent": "Migration"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbqAu1wSi1tdf1p",
+            "_score": 1,
+            "_source": {
+               "topic": "Population Total"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf2p",
+            "_score": 1,
+            "_source": {
+               "topic": "Household Size",
+               "parent": "Household Type And Relationship"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf3E",
+            "_score": 1,
+            "_source": {
+               "topic": "Utilities"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf3O",
+            "_score": 1,
+            "_source": {
+               "topic": "Business Sales/Revenue"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf3J",
+            "_score": 1,
+            "_source": {
+               "topic": "Business Owner"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf25",
+            "_score": 1,
+            "_source": {
+               "topic": "Agricultural Sales"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf20",
+            "_score": 1,
+            "_source": {
+               "topic": "Means Of Transportation To Work",
+               "parent": "Journey To Work"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf13",
+            "_score": 1,
+            "_source": {
+               "topic": "Social Security Income"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf18",
+            "_score": 1,
+            "_source": {
+               "topic": "Occupation",
+               "parent": "Health Insurance Coverage"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf2g",
+            "_score": 1,
+            "_source": {
+               "topic": "Families",
+               "parent": "Household Type And Relationship"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf2b",
+            "_score": 1,
+            "_source": {
+               "topic": "Nativity",
+               "parent": "Nativity And Foreign Born Population"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf2l",
+            "_score": 1,
+            "_source": {
+               "topic": "Grandparents As Caregivers",
+               "parent": "Families"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf2S",
+            "_score": 1,
+            "_source": {
+               "topic": "Hispanic Or Latino Origin"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf2X",
+            "_score": 1,
+            "_source": {
+               "topic": "Linguistic Isololation",
+               "parent": "Language Spoken At Home"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf2D",
+            "_score": 1,
+            "_source": {
+               "topic": "Disability",
+               "parent": "Health Insurance Coverage"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf2N",
+            "_score": 1,
+            "_source": {
+               "topic": "Second Or Junior Mortgage Payments Or Home Equity Loan",
+               "parent": "Mortgage Status"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf2I",
+            "_score": 1,
+            "_source": {
+               "topic": "Real Estate Taxes",
+               "parent": "Housing Costs"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbqAu1wSi1tdf1v",
+            "_score": 1,
+            "_source": {
+               "topic": "Journey To Work",
+               "parent": "Place Of Work"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbqAu1wSi1tdf1q",
+            "_score": 1,
+            "_source": {
+               "topic": "Migration"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbqAu1wSi1tdf10",
+            "_score": 1,
+            "_source": {
+               "topic": "Foodstamps And Snap"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf2v",
+            "_score": 1,
+            "_source": {
+               "topic": "Grade Enrolled",
+               "parent": "School Enrollment And Type Of School"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf3P",
+            "_score": 1,
+            "_source": {
+               "topic": "Small Business"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf2q",
+            "_score": 1,
+            "_source": {
+               "topic": "Veteran Status"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf3F",
+            "_score": 1,
+            "_source": {
+               "topic": "House Heating Fuel",
+               "parent": "Utilities"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf3A",
+            "_score": 1,
+            "_source": {
+               "topic": "Rooms"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf3K",
+            "_score": 1,
+            "_source": {
+               "topic": "Business Payroll"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf26",
+            "_score": 1,
+            "_source": {
+               "topic": "Condominium Status And Fee"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf21",
+            "_score": 1,
+            "_source": {
+               "topic": "Travel Time To Work",
+               "parent": "Journey To Work"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf2h",
+            "_score": 1,
+            "_source": {
+               "topic": "Own Children",
+               "parent": "Families"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf2w",
+            "_score": 1,
+            "_source": {
+               "topic": "Educational Attainment",
+               "parent": "Education"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf14",
+            "_score": 1,
+            "_source": {
+               "topic": "Labor Force Status"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf19",
+            "_score": 1,
+            "_source": {
+               "topic": "Industry",
+               "parent": "Health Insurance Coverage"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf2c",
+            "_score": 1,
+            "_source": {
+               "topic": "Nativity Of Parent",
+               "parent": "Nativity"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf2m",
+            "_score": 1,
+            "_source": {
+               "topic": "Family Size",
+               "parent": "Families"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf2T",
+            "_score": 1,
+            "_source": {
+               "topic": "Race"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf2Y",
+            "_score": 1,
+            "_source": {
+               "topic": "Disability"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf2E",
+            "_score": 1,
+            "_source": {
+               "topic": "Housing Costs"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf2O",
+            "_score": 1,
+            "_source": {
+               "topic": "Mortgage Payment",
+               "parent": "Mortgage Status"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf2J",
+            "_score": 1,
+            "_source": {
+               "topic": "Insurance For Fire Hazard And Flood",
+               "parent": "Housing Costs"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbqAu1wSi1tdf1w",
+            "_score": 1,
+            "_source": {
+               "topic": "Time Leaving Home To Go To Work",
+               "parent": "Journey To Work"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbqAu1wSi1tdf1r",
+            "_score": 1,
+            "_source": {
+               "topic": "Year Hh Moved Into Unit",
+               "parent": "Migration"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbqAu1wSi1tdf11",
+            "_score": 1,
+            "_source": {
+               "topic": "Poverty"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf2r",
+            "_score": 1,
+            "_source": {
+               "topic": "Period Of Miliatry Service",
+               "parent": "Veteran Status"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf3G",
+            "_score": 1,
+            "_source": {
+               "topic": "Plumbing Facilities",
+               "parent": "Utilities"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf3B",
+            "_score": 1,
+            "_source": {
+               "topic": "Kitchen Facilities",
+               "parent": "Rooms"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf3L",
+            "_score": 1,
+            "_source": {
+               "topic": "Legal Form of Organization"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf27",
+            "_score": 1,
+            "_source": {
+               "topic": "Business On Property"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf22",
+            "_score": 1,
+            "_source": {
+               "topic": "Year Structure Built"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf2-",
+            "_score": 1,
+            "_source": {
+               "topic": "Tenure"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf15",
+            "_score": 1,
+            "_source": {
+               "topic": "Work Experience",
+               "parent": "Health Insurance Coverage"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf2x",
+            "_score": 1,
+            "_source": {
+               "topic": "Field Of Degree",
+               "parent": "Educational Attainment"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf2d",
+            "_score": 1,
+            "_source": {
+               "topic": "Citizenship Status",
+               "parent": "Nativity And Foreign Born Population"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf2n",
+            "_score": 1,
+            "_source": {
+               "topic": "Relatives And Non Relatives",
+               "parent": "Household Type And Relationship"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf2i",
+            "_score": 1,
+            "_source": {
+               "topic": "Foster Children",
+               "parent": "Families"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf2U",
+            "_score": 1,
+            "_source": {
+               "topic": "Language Spoken At Home"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf2P",
+            "_score": 1,
+            "_source": {
+               "topic": "Ancestry"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf2_",
+            "_score": 1,
+            "_source": {
+               "topic": "Vacancy Status"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf2Z",
+            "_score": 1,
+            "_source": {
+               "topic": "Nativity And Foreign Born Population"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf2F",
+            "_score": 1,
+            "_source": {
+               "topic": "Selected Monthly Costs As A Percent Of Income",
+               "parent": "Housing Costs"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf2A",
+            "_score": 1,
+            "_source": {
+               "topic": "Unemployment",
+               "parent": "Health Insurance Coverage"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf2K",
+            "_score": 1,
+            "_source": {
+               "topic": "Condominium Status And Fee",
+               "parent": "Housing Costs"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbqAu1wSi1tdf1x",
+            "_score": 1,
+            "_source": {
+               "topic": "Means Of Transportation To Work",
+               "parent": "Journey To Work"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbqAu1wSi1tdf1s",
+            "_score": 1,
+            "_source": {
+               "topic": "Place Of Birth",
+               "parent": "Migration"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbqAu1wSi1tdf12",
+            "_score": 1,
+            "_source": {
+               "topic": "Vehicles Available"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf2s",
+            "_score": 1,
+            "_source": {
+               "topic": "Education"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf3C",
+            "_score": 1,
+            "_source": {
+               "topic": "Occupants Per Room",
+               "parent": "Rooms"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf3M",
+            "_score": 1,
+            "_source": {
+               "topic": "Employment Size of Establishment/Firm"
+            }
+         },
+         {
+            "_index": "topics",
+            "_type": "metadata",
+            "_id": "AVdnSLbrAu1wSi1tdf3H",
+            "_score": 1,
+            "_source": {
+               "topic": "Telephone Service Available",
+               "parent": "Utilities"
+            }
+         }
+      ]
+   }
+}

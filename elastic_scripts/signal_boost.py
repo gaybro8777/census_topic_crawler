@@ -84,7 +84,7 @@ with open('es_topics.json', 'r') as f:
 
 es_topics = [ x['_source']['topic'] for x in es_json['hits']['hits'] ]
 es_id = { x['_source']['topic']: x['_id'] for x in es_json['hits']['hits'] }
-# parents = [ x['_source']['parent'] for x in es_json['hits']['hits'] if 'parent' in x['_source'].keys() ]
+parents = [ x['_source']['parent'] for x in es_json['hits']['hits'] if 'parent' in x['_source'].keys() ]
 
 ##########################################################################
 # Load topics from Census Website
@@ -92,15 +92,43 @@ es_id = { x['_source']['topic']: x['_id'] for x in es_json['hits']['hits'] }
 with open('all_topics.json', 'r') as f:
     census_json = json.load(f)
 
-description_fields = ['definitions_content', 'overview_content', 'about_content', 'faq_content']
+#description_fields = ['definitions_content', 'overview_content', 'about_content', 'faq_content']
+description_fields = ['news_items', 'survey_items', 'main_content', 'overview_content',\
+    'about_content', 'faq_content', 'definitions_content']
+#survey_items - title, description
+#news_items - title, description
+#definitions_content - only in Public Sector and International Trade
 
 census_topics = [ x['name'] for x in census_json ]
 census_description = {}
 for topic in census_json:
+    print('TOPIC: {}'.format(topic['name']))
     description = []
     for field in description_fields:
         try:
-            description.append(topic[field])
+            if field == 'news_items':
+                if field in topic:
+                    print('NEWS ITEMS')
+                    subitems = []
+                    for news_item in topic[field]:
+                        print('TITLE: {}'.format(news_item['title']))
+                        subitems.append(news_item['title'])
+                        print('DESCRIPTION: {}'.format(news_item['description']))
+                        subitems.append(news_item['description'])
+                    description.append(' '.join(subitems))
+            elif field == 'survey_items':
+                if field in topic:
+                    print('SURVEY ITEMS')
+                    subitems = []
+                    for survey_item in topic[field]:
+                        print('TITLE: {}'.format(survey_item['title']))
+                        subitems.append(news_item['title'])
+                        print('DESCRPITION: {}'.format(survey_item['description']))
+                        subitems.append(news_item['description'])
+                    description.append(' '.join(subitems))
+            else:
+                print(field)
+                description.append(topic[field])
         except KeyError:
             pass
     census_description[topic['name']] = ' '.join(description)
@@ -109,25 +137,25 @@ for topic in census_json:
 # Creating simple mapping
 # I manually cleaned the mapping after this because no bijective mapping exists
 ##########################################################################
-# matched_topics = {}
-# for topic in census_topics:
-#     matches = corpus_match(es_topics, topic)
-#     if matches[0][1] == -100.0: 
-#         matched_topics[topic] = matches[0][0]
-#     else:
-#         matched_topics[topic] = matches[:10]
+matched_topics = {}
+for topic in census_topics:
+    matches = corpus_match(es_topics, topic)
+    if matches[0][1] == -100.0:
+        matched_topics[topic] = matches[0][0]
+    else:
+        matched_topics[topic] = matches[:10]
 
-# with open('matched_topics.json', 'w') as f:
-#     json.dump(matched_topics, f)
+with open('matched_topics.json', 'w') as f:
+    json.dump(matched_topics, f)
 
 ##########################################################################
 # Adding fields to Elasticsearch
 ##########################################################################
-# with open('matched_topics_manual.json', 'r') as f:
-#     matched_json = json.load(f)
+with open('matched_topics_manual.json', 'r') as f:
+    matched_json = json.load(f)
 
-# doctype = "metadata"
-# for topic in matched_json.keys():
-#     doc_ids = [ es_id[x] for x in matched_json[topic] ]
-#     for doc_id in doc_ids:
-#         es.update(index='topics', doc_type='metadata', id=doc_id, body={"doc":{ "content": census_description[topic] }})
+doctype = "metadata"
+for topic in matched_json.keys():
+    doc_ids = [ es_id[x] for x in matched_json[topic] ]
+    for doc_id in doc_ids:
+        es.update(index='topics', doc_type='metadata', id=doc_id, body={"doc":{ "content": census_description[topic] }})
