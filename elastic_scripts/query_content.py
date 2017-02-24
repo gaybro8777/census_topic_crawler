@@ -5,6 +5,7 @@ import ujson as json
 from elasticsearch import Elasticsearch
 
 pp = pprint.PrettyPrinter(indent=2)
+#test queries to see how original and new index results compare
 queries = ['income inequality', 'number of households', 'minimum wage', 'disposable income', 'languages spoken in us', 'homeownership rate',\
                 'african american population', 'per capita income', 'state and county quick facts', 'educational attainment by state',\
                 'race breakdown', 'children in poverty', 'marriage statistics', 'welfare recipients by race', 'interracial marriage statistics',\
@@ -61,8 +62,6 @@ if __name__=='__main__':
     elif args.f:
         topics = es.search(index="topics", body={ "query": { "match": { "content": args.search } } })
         pp.pprint(topics)
-        # for doc in topics["hits"]["hits"]:
-        #     print("%s: %s" % (doc['_id'], doc['_source']['topic']))
     elif args.m:
         with open('matched_topics_manual.json', 'r') as f:
             mapping = json.load(f)

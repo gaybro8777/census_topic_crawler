@@ -6,6 +6,7 @@ import numpy as np
 from elasticsearch import Elasticsearch
 from collections import Counter
 
+
 ##########################################################################
 # Misc Functions
 ##########################################################################
@@ -91,8 +92,7 @@ parents = [ x['_source']['parent'] for x in es_json['hits']['hits'] if 'parent' 
 ##########################################################################
 with open('all_topics.json', 'r') as f:
     census_json = json.load(f)
-
-#description_fields = ['definitions_content', 'overview_content', 'about_content', 'faq_content']
+#these are the fields from the scraped content that are combined in order to feed into the content field in the index
 description_fields = ['news_items', 'survey_items', 'main_content', 'overview_content',\
     'about_content', 'faq_content', 'definitions_content']
 #survey_items - title, description
