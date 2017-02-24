@@ -14,12 +14,6 @@ queries = ['income inequality', 'number of households', 'minimum wage', 'disposa
                 'pet ownership', 'housing permits', 'demographic profile', 'current world population', 'literacy rates'
                 ]
 
-def checkOtherFlag():
-    if args.u:
-        return
-    else:
-        return
-
 if __name__=='__main__':
     es = Elasticsearch([{u'host': u'127.0.0.1', u'port': 9200}])
     parser = argparse.ArgumentParser(description='Search against boosted content field.')
