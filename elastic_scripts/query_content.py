@@ -21,7 +21,7 @@ if __name__=='__main__':
     parser.add_argument('-f', action='store_true', default=False, help='Return full JSON.')
     parser.add_argument('-c', action='store_true', default=False, help='Print comparison.')
     parser.add_argument('-m', action='store_true', default=False, help='Print mapping.')
-    parser.add_argument('-u', action='store_true', default=False, help='use list of queries and output results to file.')
+    parser.add_argument('-u', action='store_true', default=False, help='use list of queries and output results to file. Please pass "" for search query when using this flag')
     parser.add_argument('search', action='store', type=str, help='Search string in quotes')
     args = parser.parse_args()
     if args.o:
@@ -37,19 +37,20 @@ if __name__=='__main__':
         file = open('queryoutput.txt', 'w')
         for query in queries:
             topics_old = es.search(index="topics", body={ "query": { "match": { "topic": query } } })
-            topics_new = es.search(index="topics", body={ "query": { "match": { "content": query } } })       
-            file.write('Search Query: \"{}\"'.format(query)+'\n')
-            file.write("Old: %d vs New: %d"%(topics_old["hits"]["total"], topics_new["hits"]["total"])+'\n')
-            file.write("\tOld:\n")
+            topics_new = es.search(index="topics", body={ "query": { "match": { "content": query } } })
+            file.write('#######################################\n')
+            file.write('SEARCH QUERY: \"{}\"'.format(query)+'\n')
+            file.write("OLD: %d VS NEW: %d"%(topics_old["hits"]["total"], topics_new["hits"]["total"])+'\n')
+            file.write("\tOLD:\n")
             for doc in topics_old["hits"]["hits"]:
                 file.write("\t\t%s: %s" % (doc['_id'], doc['_source']['topic'])+'\n')
-            file.write("\tNew:\n")
+            file.write("\tNEW:\n")
             for doc in topics_new["hits"]["hits"]:
                 file.write("\t\t%s: %s" % (doc['_id'], doc['_source']['topic'])+'\n')
         file.close()
     elif args.c:
         topics_old = es.search(index="topics", body={ "query": { "match": { "topic": args.search } } })
-        topics_new = es.search(index="topics", body={ "query": { "match": { "content": args.search } } })       
+        topics_new = es.search(index="topics", body={ "query": { "match": { "content": args.search } } })
         print("Old: %d vs New: %d"%(topics_old["hits"]["total"], topics_new["hits"]["total"]))
         print("\tOld:")
         for doc in topics_old["hits"]["hits"]:
