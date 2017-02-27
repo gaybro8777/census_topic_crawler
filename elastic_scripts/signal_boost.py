@@ -102,32 +102,24 @@ description_fields = ['news_items', 'survey_items', 'main_content', 'overview_co
 census_topics = [ x['name'] for x in census_json ]
 census_description = {}
 for topic in census_json:
-    print('TOPIC: {}'.format(topic['name']))
     description = []
     for field in description_fields:
         try:
             if field == 'news_items':
                 if field in topic:
-                    print('NEWS ITEMS')
                     subitems = []
                     for news_item in topic[field]:
-                        print('TITLE: {}'.format(news_item['title']))
                         subitems.append(news_item['title'])
-                        print('DESCRIPTION: {}'.format(news_item['description']))
                         subitems.append(news_item['description'])
                     description.append(' '.join(subitems))
             elif field == 'survey_items':
                 if field in topic:
-                    print('SURVEY ITEMS')
                     subitems = []
                     for survey_item in topic[field]:
-                        print('TITLE: {}'.format(survey_item['title']))
                         subitems.append(news_item['title'])
-                        print('DESCRPITION: {}'.format(survey_item['description']))
                         subitems.append(news_item['description'])
                     description.append(' '.join(subitems))
             else:
-                print(field)
                 description.append(topic[field])
         except KeyError:
             pass
