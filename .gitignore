@@ -4,3 +4,4 @@ census_topic_crawler/spiders/__pycache__/*
 all_topics.json
 child_topics.json
 parent_topics.json
+elastic_scripts/queryoutput*
