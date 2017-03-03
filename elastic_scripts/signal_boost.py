@@ -2,6 +2,7 @@ import ujson as json
 import re
 import itertools
 import csv
+import sys
 import numpy as np
 from elasticsearch import Elasticsearch
 from collections import Counter
@@ -74,14 +75,13 @@ def check_in(matched, word):
 ##########################################################################
 es = Elasticsearch([{u'host': u'127.0.0.1', u'port': 9200}])
 indices = es.indices.get_aliases().keys()
-
-print(indices)
+if 'topics' not in indices:
+    sys.exit('The TOPICS index is not present.  Please add it before running this script')
 
 ##########################################################################
 # Load Topics from ES snapshot
 ##########################################################################
-with open('es_topics.json', 'r') as f:
-    es_json = json.load(f)
+es_json = es.search(index="topics", body={ "query": { "match_all" : {}}, "size": 1000})
 
 es_topics = [ x['_source']['topic'] for x in es_json['hits']['hits'] ]
 es_id = { x['_source']['topic']: x['_id'] for x in es_json['hits']['hits'] }
@@ -102,6 +102,7 @@ description_fields = ['news_items', 'survey_items', 'main_content', 'overview_co
 census_topics = [ x['name'] for x in census_json ]
 census_description = {}
 for topic in census_json:
+    print('Scraped Topic: {}'.format(topic['name']))
     description = []
     for field in description_fields:
         try:
@@ -129,25 +130,36 @@ for topic in census_json:
 # Creating simple mapping
 # I manually cleaned the mapping after this because no bijective mapping exists
 ##########################################################################
-matched_topics = {}
-for topic in census_topics:
-    matches = corpus_match(es_topics, topic)
-    if matches[0][1] == -100.0:
-        matched_topics[topic] = matches[0][0]
-    else:
-        matched_topics[topic] = matches[:10]
-
-with open('matched_topics.json', 'w') as f:
-    json.dump(matched_topics, f)
+# matched_topics = {}
+# for topic in census_topics:
+#     matches = corpus_match(es_topics, topic)
+#     if matches[0][1] == -100.0:
+#         matched_topics[topic] = matches[0][0]
+#     else:
+#         matched_topics[topic] = matches[:10]
+#
+# with open('matched_topics.json', 'w') as f:
+#     json.dump(matched_topics, f)
 
 ##########################################################################
-# Adding fields to Elasticsearch
+# Adding fields and content to Elasticsearch
 ##########################################################################
+index_mapping = es.indices.get_mapping(index='topics', doc_type='metadata')
+if 'content' not in index_mapping['topics']['mappings']['metadata']['properties']:
+    try:
+        add_mapping = es.indices.put_mapping(index='topics', doc_type='metadata', body={ "properties" : { "content" : { "type" : "string" }}})
+        if add_mapping['acknowledged'] == True:
+            print('CONTENT field was added to topics index')
+    except Exception as e:
+        raise
+else:
+    print('CONTENT property present in topics index')
+
 with open('matched_topics_manual.json', 'r') as f:
-    matched_json = json.load(f)
+    matched_topics_json = json.load(f)
 
-doctype = "metadata"
-for topic in matched_json.keys():
-    doc_ids = [ es_id[x] for x in matched_json[topic] ]
+for topic in matched_topics_json.keys():
+    doc_ids = [ es_id[x] for x in matched_topics_json[topic] ]
     for doc_id in doc_ids:
-        es.update(index='topics', doc_type='metadata', id=doc_id, body={"doc":{ "content": census_description[topic] }})
+        print('Updating topic: {}'.format(topic))
+        es.update(index='topics', doc_type='metadata', id=doc_id, body={'doc':{ 'content': census_description[topic] }})

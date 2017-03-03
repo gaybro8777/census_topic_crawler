@@ -38,7 +38,9 @@ if __name__=='__main__':
         file = open('queryoutput.txt', 'w')
         for query in queries:
             topics_old = es.search(index="topics", body={ "query": { "match": { "topic": query } } })
-            topics_new = es.search(index="topics", body={ "query": { "match": { "content": query } } })
+            #topics_new = es.search(index="topics", body={ "query": { "match": { "content": query } } })
+            topics_new = es.search(index="topics", body={ "query" : { "bool" : { "should" : [{ "match":\
+                { "content": {"query": "children in poverty", "boost" : 1}}}, { "match": { "topic": { "query": query,"boost" : 1}}}]}}})
             file.write('#######################################\n')
             file.write('SEARCH QUERY: \"{}\"'.format(query)+'\n')
             file.write("OLD: %d VS NEW: %d"%(topics_old["hits"]["total"], topics_new["hits"]["total"])+'\n')
@@ -70,5 +72,3 @@ if __name__=='__main__':
         topics = es.search(index="topics", body={ "query": { "match": { "content": args.search } } })
         for doc in topics["hits"]["hits"]:
             print("%s: %s" % (doc['_id'], doc['_source']['topic']))
-
-

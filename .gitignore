@@ -5,3 +5,4 @@ all_topics.json
 child_topics.json
 parent_topics.json
 elastic_scripts/queryoutput*
+elastic_scripts/matched_topics.json
