@@ -35,7 +35,7 @@ if __name__=='__main__':
             for doc in topics["hits"]["hits"]:
                 print("%s: %s" % (doc['_id'], doc['_source']['topic']))
     elif args.u:
-        file = open('queryoutput.txt', 'w')
+        file = open('query_output.txt', 'w')
         for query in queries:
             topics_old = es.search(index="topics", body={ "query": { "match": { "topic": query } } })
             #topics_new = es.search(index="topics", body={ "query": { "match": { "content": query } } })
