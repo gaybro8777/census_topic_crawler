@@ -28,7 +28,6 @@ if __name__=='__main__':
       The default is to set the weight to [2, 1] (equal) if no optional weight is provided.', required=False)
     args = parser.parse_args()
     search_weights = args.w
-    print(args.w)
     if args.o:
         topics = es.search(index="topics", body={ "query": { "match": { "topic": args.search } } })
         if args.f:
@@ -42,9 +41,8 @@ if __name__=='__main__':
         file = open('query_output.txt', 'w')
         for query in queries:
             topics_old = es.search(index="topics", body={ "query": { "match": { "topic": query } } })
-            #topics_new = es.search(index="topics", body={ "query": { "match": { "content": query } } })
             topics_new = es.search(index="topics", body={ "query" : { "bool" : { "should" : [{ "match":\
-                { "content": {"query": "children in poverty", "boost" : search_weights[0]}}}, { "match": { "topic": { "query": query,"boost" : search_weights[1]}}}]}}})
+                { "content": {"query": "children in poverty", "boost" : search_weights[0]}}}, { "match": { "topic": { "query": query, "boost" : search_weights[1]}}}]}}})
             file.write('#######################################\n')
             file.write('SEARCH QUERY: \"{}\"'.format(query)+'\n')
             file.write("OLD: %d VS NEW: %d"%(topics_old["hits"]["total"], topics_new["hits"]["total"])+'\n')
@@ -57,9 +55,8 @@ if __name__=='__main__':
         file.close()
     elif args.c:
         topics_old = es.search(index="topics", body={ "query": { "match": { "topic": args.search } } })
-        #topics_new = es.search(index="topics", body={ "query": { "match": { "content": args.search } } })
         topics_new = es.search(index="topics", body={ "query" : { "bool" : { "should" : [{ "match":\
-            { "content": {"query": "children in poverty", "boost" : search_weights[0]}}}, { "match": { "topic": { "query": args.search,"boost" : search_weights[1]}}}]}}})
+            { "content": {"query": "children in poverty", "boost" : search_weights[0]}}}, { "match": { "topic": { "query": args.search, "boost" : search_weights[1]}}}]}}})
         print("Old: %d vs New: %d"%(topics_old["hits"]["total"], topics_new["hits"]["total"]))
         print("\tOld:")
         for idx, doc in enumerate(topics_old["hits"]["hits"]):
@@ -68,17 +65,15 @@ if __name__=='__main__':
         for idx, doc in enumerate(topics_new["hits"]["hits"]):
             print("\t\t%s. %s: %s" % (idx+1, doc['_id'], doc['_source']['topic']))
     elif args.f:
-        #topics = es.search(index="topics", body={ "query": { "match": { "content": args.search } } })
         topics = es.search(index="topics", body={ "query" : { "bool" : { "should" : [{ "match":\
-            { "content": {"query": "children in poverty", "boost" : search_weights[0]}}}, { "match": { "topic": { "query": args.search,"boost" : search_weights[1]}}}]}}})
+            { "content": {"query": "children in poverty", "boost" : search_weights[0]}}}, { "match": { "topic": { "query": args.search, "boost" : search_weights[1]}}}]}}})
         pp.pprint(topics)
     elif args.m:
         with open('matched_topics_manual.json', 'r') as f:
             mapping = json.load(f)
         pp.pprint(mapping)
     else:
-        #topics = es.search(index="topics", body={ "query": { "match": { "content": args.search } } })
         topics = es.search(index="topics", body={ "query" : { "bool" : { "should" : [{ "match":\
-            { "content": {"query": "children in poverty", "boost" : search_weights[0]}}}, { "match": { "topic": { "query": args.search,"boost" : search_weights[1]}}}]}}})
+            { "content": {"query": "children in poverty", "boost" : search_weights[0]}}}, { "match": { "topic": { "query": args.search, "boost" : search_weights[1]}}}]}}})
         for idx, doc in enumerate(topics["hits"]["hits"]):
             print("%s. %s: %s" % (idx+1, doc['_id'], doc['_source']['topic']))
