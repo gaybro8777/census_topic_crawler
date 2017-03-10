@@ -4,6 +4,7 @@ import itertools
 import csv
 import sys
 import numpy as np
+import pprint
 from elasticsearch import Elasticsearch
 from collections import Counter
 
@@ -82,10 +83,9 @@ if 'topics' not in indices:
 # Load Topics from ES snapshot
 ##########################################################################
 es_json = es.search(index="topics", body={ "query": { "match_all" : {}}, "size": 1000})
-
-es_topics = [ x['_source']['topic'] for x in es_json['hits']['hits'] ]
+#es_topics = [ x['_source']['topic'] for x in es_json['hits']['hits'] ]
 es_id = { x['_source']['topic']: x['_id'] for x in es_json['hits']['hits'] }
-parents = [ x['_source']['parent'] for x in es_json['hits']['hits'] if 'parent' in x['_source'].keys() ]
+#parents = [ x['_source']['parent'] for x in es_json['hits']['hits'] if 'parent' in x['_source'].keys() ]
 
 ##########################################################################
 # Load topics from Census Website
@@ -106,20 +106,20 @@ for topic in census_json:
     description = []
     for field in description_fields:
         try:
-            if field == 'news_items':
+            if field == 'news_items' or field == 'survey_items':
                 if field in topic:
                     subitems = []
                     for news_item in topic[field]:
                         subitems.append(news_item['title'])
                         subitems.append(news_item['description'])
                     description.append(' '.join(subitems))
-            elif field == 'survey_items':
-                if field in topic:
-                    subitems = []
-                    for survey_item in topic[field]:
-                        subitems.append(news_item['title'])
-                        subitems.append(news_item['description'])
-                    description.append(' '.join(subitems))
+            #elif field == 'survey_items':
+            #    if field in topic:
+            #        subitems = []
+            #        for survey_item in topic[field]:
+            #            subitems.append(news_item['title'])
+            #            subitems.append(news_item['description'])
+            #        description.append(' '.join(subitems))
             else:
                 description.append(topic[field])
         except KeyError:
@@ -161,5 +161,4 @@ with open('matched_topics_manual.json', 'r') as f:
 for topic in matched_topics_json.keys():
     doc_ids = [ es_id[x] for x in matched_topics_json[topic] ]
     for doc_id in doc_ids:
-        print('Updating topic: {}'.format(topic))
         es.update(index='topics', doc_type='metadata', id=doc_id, body={'doc':{ 'content': census_description[topic] }})
