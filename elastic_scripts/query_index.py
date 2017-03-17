@@ -8,7 +8,7 @@ pp = pprint.PrettyPrinter(indent=2)
 #test queries to see how original and new index results compare
 queries = ['income inequality', 'number of households', 'minimum wage', 'disposable income', 'languages spoken in us', 'homeownership rate',\
                 'african american population', 'per capita income', 'state and county quick facts', 'educational attainment by state',\
-                'race breakdown', 'children in poverty', 'marriage statistics', 'welfare recipients by race', 'interracial marriage statistics',\
+                'race breakdown', 'query', 'marriage statistics', 'welfare recipients by race', 'interracial marriage statistics',\
                 'veterans by state', 'average household type', 'undocumented immigrants 2012', 'domestic violence statistics', 'single parents statistics',\
                 'urban and rural population', 'smoking', 'us population by race', 'wealth distribution', 'public transportation', 'gender wage gap',\
                 'median household income by state', 'average family size', 'prison population', 'migration data', 'annual survey of manufacturers',\
@@ -42,7 +42,7 @@ if __name__=='__main__':
         for query in queries:
             topics_old = es.search(index="topics", body={ "query": { "match": { "topic": query } } })
             topics_new = es.search(index="topics", body={ "query" : { "bool" : { "should" : [{ "match":\
-                { "content": {"query": "children in poverty", "boost" : search_weights[0]}}}, { "match": { "topic": { "query": query, "boost" : search_weights[1]}}}]}}})
+                { "content": {"query": query, "boost" : search_weights[0]}}}, { "match": { "topic": { "query": query, "boost" : search_weights[1]}}}]}}})
             file.write('#######################################\n')
             file.write('SEARCH QUERY: \"{}\"'.format(query)+'\n')
             file.write("OLD: %d VS NEW: %d"%(topics_old["hits"]["total"], topics_new["hits"]["total"])+'\n')
@@ -56,7 +56,7 @@ if __name__=='__main__':
     elif args.c:
         topics_old = es.search(index="topics", body={ "query": { "match": { "topic": args.search } } })
         topics_new = es.search(index="topics", body={ "query" : { "bool" : { "should" : [{ "match":\
-            { "content": {"query": "children in poverty", "boost" : search_weights[0]}}}, { "match": { "topic": { "query": args.search, "boost" : search_weights[1]}}}]}}})
+            { "content": {"query": args.search, "boost" : search_weights[0]}}}, { "match": { "topic": { "query": args.search, "boost" : search_weights[1]}}}]}}})
         print("Old: %d vs New: %d"%(topics_old["hits"]["total"], topics_new["hits"]["total"]))
         print("\tOld:")
         for idx, doc in enumerate(topics_old["hits"]["hits"]):
@@ -66,7 +66,7 @@ if __name__=='__main__':
             print("\t\t%s. %s: %s" % (idx+1, doc['_id'], doc['_source']['topic']))
     elif args.f:
         topics = es.search(index="topics", body={ "query" : { "bool" : { "should" : [{ "match":\
-            { "content": {"query": "children in poverty", "boost" : search_weights[0]}}}, { "match": { "topic": { "query": args.search, "boost" : search_weights[1]}}}]}}})
+            { "content": {"query": args.search, "boost" : search_weights[0]}}}, { "match": { "topic": { "query": args.search, "boost" : search_weights[1]}}}]}}})
         pp.pprint(topics)
     elif args.m:
         with open('matched_topics_manual.json', 'r') as f:
@@ -74,6 +74,6 @@ if __name__=='__main__':
         pp.pprint(mapping)
     else:
         topics = es.search(index="topics", body={ "query" : { "bool" : { "should" : [{ "match":\
-            { "content": {"query": "children in poverty", "boost" : search_weights[0]}}}, { "match": { "topic": { "query": args.search, "boost" : search_weights[1]}}}]}}})
+            { "content": {"query": "query", "boost" : search_weights[0]}}}, { "match": { "topic": { "query": args.search, "boost" : search_weights[1]}}}]}}})
         for idx, doc in enumerate(topics["hits"]["hits"]):
             print("%s. %s: %s" % (idx+1, doc['_id'], doc['_source']['topic']))
