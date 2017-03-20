@@ -8,7 +8,7 @@ pp = pprint.PrettyPrinter(indent=2)
 #test queries to see how original and new index results compare
 queries = ['income inequality', 'number of households', 'minimum wage', 'disposable income', 'languages spoken in us', 'homeownership rate',\
                 'african american population', 'per capita income', 'state and county quick facts', 'educational attainment by state',\
-                'race breakdown', 'query', 'marriage statistics', 'welfare recipients by race', 'interracial marriage statistics',\
+                'race breakdown', 'children in poverty', 'marriage statistics', 'welfare recipients by race', 'interracial marriage statistics',\
                 'veterans by state', 'average household type', 'undocumented immigrants 2012', 'domestic violence statistics', 'single parents statistics',\
                 'urban and rural population', 'smoking', 'us population by race', 'wealth distribution', 'public transportation', 'gender wage gap',\
                 'median household income by state', 'average family size', 'prison population', 'migration data', 'annual survey of manufacturers',\
@@ -74,6 +74,6 @@ if __name__=='__main__':
         pp.pprint(mapping)
     else:
         topics = es.search(index="topics", body={ "query" : { "bool" : { "should" : [{ "match":\
-            { "content": {"query": "query", "boost" : search_weights[0]}}}, { "match": { "topic": { "query": args.search, "boost" : search_weights[1]}}}]}}})
+            { "content": {"query": args.search, "boost" : search_weights[0]}}}, { "match": { "topic": { "query": args.search, "boost" : search_weights[1]}}}]}}})
         for idx, doc in enumerate(topics["hits"]["hits"]):
             print("%s. %s: %s" % (idx+1, doc['_id'], doc['_source']['topic']))
