@@ -20,7 +20,7 @@ In order to execute each of these spiders, run the following command in the base
 
 When the above command is executed, the output will be written to the specified filename.
 
-**Note: the format of the site may change.  If the layout changes, it is not guaranteed that this bot will not encounter errors as a result.**
+**Note: the format of the site may change.  If the layout changes, it is not guaranteed that this bot completely execute without errors.**
 
 ### Topic Information Loader
 Some scripts to load that information into a new field in an existing topic index and query that index to test the results of the changes.  These files are contained in the `elastic_scripts` directory of the repository (along with an additional README).
